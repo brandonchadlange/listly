@@ -43,7 +43,7 @@ const Home: NextPage = () => {
   }
 
   const listItems = list.map((li) => (
-    <Card withBorder py="xs">
+    <Card withBorder py="xs" key={li.description}>
       {li.description}
     </Card>
   ));
