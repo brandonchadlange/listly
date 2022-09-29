@@ -71,7 +71,7 @@ const Home: NextPage = () => {
   };
 
   const appOptionsList = appOptions.map((ao) => (
-    <Card py="xs" withBorder>
+    <Card py="xs" withBorder key={ao.description}>
       <Text>{ao.description}</Text>
     </Card>
   ));
