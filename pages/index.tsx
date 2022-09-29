@@ -22,6 +22,7 @@ interface ListItem {
 
 interface AppOption {
   description: string;
+  url: string;
 }
 
 const Home: NextPage = () => {
@@ -50,28 +51,31 @@ const Home: NextPage = () => {
 
   const onDrawerClose = () => {
     setDrawerOpened(false);
+    setShowAppOptions(false);
   };
 
   const onCoreSupplyClick = () => {
     setAppOptions([
-      { description: "Product candidates" },
-      { description: "Quote request" },
+      { description: "Product candidates", url: "https://coresupply.io" },
+      { description: "Quote request", url: "https://coresupply.io" },
     ]);
     setShowAppOptions(true);
   };
 
   const onCheckersClick = () => {
-    setAppOptions([{ description: "Add to cart" }]);
+    setAppOptions([
+      { description: "Add to cart", url: "https://www.sixty60.co.za" },
+    ]);
     setShowAppOptions(true);
   };
 
   const onScoopClick = () => {
-    setAppOptions([{ description: "Add to cart" }]);
+    setAppOptions([{ description: "Add to cart", url: "https://scoop.co.za" }]);
     setShowAppOptions(true);
   };
 
   const appOptionsList = appOptions.map((ao) => (
-    <Card py="xs" withBorder key={ao.description}>
+    <Card py="xs" withBorder key={ao.description} component="a" href={ao.url}>
       <Text>{ao.description}</Text>
     </Card>
   ));
